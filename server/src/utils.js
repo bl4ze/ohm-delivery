@@ -9,13 +9,13 @@ const db = (async () => {
   return _db;
 })()
 
-async function getOhmById(id) {
+async function getOhmByTrackingId(trackingId) {
     const _db = await db;
     const ohm = _db.get('ohms')
-        .find({ id })
+        .find({ trackingId })
         .value()
 
     return ohm;
 }
 
-module.exports = { getOhmById }
+module.exports = { getOhmByTrackingId }

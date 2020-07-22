@@ -7,7 +7,8 @@ app.use(bodyParser.json())
 
 function serve() {
     app.get('/ohms/:id', async (req, res) => {
-        const ohm = await Utils.getOhmById(req.params.id);
+        const ohm = await Utils.getOhmByTrackingId(req.params.id);
+        console.log(ohm)
         res.send(ohm);
     })
 
