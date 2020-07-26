@@ -1,16 +1,23 @@
-
-/// <reference path="main.js" />
-
 angular.module('ohmDelivery')
     .factory('ohmService', function ($http) {
         // should go to config service
         const domainPrefix = '/ohms/'
 
-        function getOhymByTrackingId(trackingId) {
+        function getByTrackingId(trackingId) {
             return new Promise(function (resolve, reject) {
                 $http.get(`${domainPrefix}${trackingId}`)
                     .then((result) => {
-                        console.log('ohm service response', result)
+                        resolve(result.data)
+                    }).catch(error => {
+                        reject(error)
+                    })
+            })
+        }
+
+        function update(trackingId, ohm){
+            return new Promise(function (resolve, reject) {
+                $http.put(`${domainPrefix}${trackingId}`, {ohm})
+                    .then((result) => {
                         resolve(result.data)
                     }).catch(error => {
                         reject(error)
@@ -19,6 +26,7 @@ angular.module('ohmDelivery')
         }
 
         return {
-            getOhymByTrackingId
+            getByTrackingId,
+            update
         }
     })

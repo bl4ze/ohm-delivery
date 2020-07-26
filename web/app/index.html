@@ -6,37 +6,19 @@
     <script src="lib/angular/angular.js"></script>
     <script src="./main.js"></script>
     <script src="./services/ohm.service.js"></script>
-    <script src="./controllers/ohm.controller.js"></script>
+    <!-- <script src="./controllers/ohm.controller.js"></script> -->
+    <script src="./components/app/app.component.js"></script>
+    <script src="./components/tracking/tracking.component.js"></script>
+    <script src="./components/search/search.component.js"></script>
     <script src="./components/changeStatus/changeStatus.component.js"></script>
+    <script src="./components/displayStatus/displayStatus.component.js"></script>
+
     <link rel="stylesheet" type="text/css" href="main.css">
     <title>Ohm Delivery</title>
 </head>
 
-<body>
-    <div class="banner">
-        <h1>Ohm Delivery</h1>
-        <h2>Get shocked by the power</h2>
-    </div>
-
-    <div ng-app="ohmDelivery" ng-controller="tracking as ctrl">
-        <form  ng-submit="getOhm()">
-            <p>
-                <input id="tracking" type="text" ng-model="trackingId" placeholder="Enter your tracking id" />
-            </p>
-            <p>
-                <button id="formBtn" type="submit">Submit</button>
-            </p>
-            <p>
-
-                <span ng-if="errorMessage">{{errorMessage}}</span>
-            </p>
-
-            <h2 ng-if="status">Status: {{status}}</h2>
-            <div ng-if="status">
-                <change-status></change-status>
-            </div>
-        </form>
-    </div>
+<body ng-app="ohmDelivery">
+    <app></app>
 </body>
 
 </html>

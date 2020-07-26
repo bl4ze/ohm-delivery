@@ -1,0 +1,13 @@
+<div>
+    <form  ng-submit="$ctrl.getOhm()">
+        <p>
+            <input id="tracking" type="text" ng-model="$ctrl.trackingId" placeholder="Enter your tracking id" />
+        </p>
+        <p>
+            <button id="formBtn" type="submit">Search</button>
+        </p>
+        <p>
+            <span ng-if="errorMessage">{{$ctrl.errorMessage}}</span>
+        </p>
+    </form>
+</div>

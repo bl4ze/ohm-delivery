@@ -1,3 +1,27 @@
-<div>
-    test change
+ <div ng-if="$ctrl.ohmData.status">
+   <form ng-submit="$ctrl.changeStatus()">
+
+      <label>
+         <input type="radio" ng-model="$ctrl.status" value="DELIVERED">
+         Delivered
+      </label>
+      <label>
+         <input type="radio" ng-model="$ctrl.status" value="REFUSED">
+         Refused
+      </label>
+      <p ng-if="$ctrl.status == 'REFUSED'">
+         <input id="refusalReason" type="text" required="" ng-model="$ctrl.refusalReason" placeholder="Enter reason for refusal" />
+      </p>
+      <p>
+         <button id="formBtn" type="submit">Submit</button>
+      </p>
+      <p>
+         <span ng-if="$ctrl.errorMessage">{{$ctrl.errorMessage}}</span>
+      </p>
+
+      <h2 ng-if="$ctrl.success">
+         Status changed successfully!
+      </h2>
+
+   </form>
 </div>
